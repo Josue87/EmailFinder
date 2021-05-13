@@ -39,9 +39,7 @@
 
 ## Usage 
 
-```
-> emailfinder -d domain.com
-```
+EmailFinder can be used in 2 ways:
 
 ### CLI
 ```

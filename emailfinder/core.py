@@ -3,7 +3,6 @@ from emailfinder.utils.finder import bing
 from emailfinder.utils.finder import baidu
 from emailfinder.utils.finder import yandex
 from emailfinder.utils.color_print import print_error, print_ok
-from emailfinder.utils.result import Result
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 
@@ -42,7 +41,7 @@ def _get_emails(target):
 def processing(target):
     emails = _get_emails(target)
     total_emails = len(emails)
-    emails_msg = f"Total emails: {total_emails}"
+    emails_msg = f"\nTotal emails: {total_emails}"
     print(emails_msg)
     print("-" * len(emails_msg))
     if total_emails > 0:

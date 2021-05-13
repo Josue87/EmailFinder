@@ -4,38 +4,16 @@ from os import path
 import emailfinder
 
 
-long_description = """|Supported Python versions| |License|
-
-**MetaFinder - Metadata search through Search Engines**
-=======================================================
-
-::
-
-    _______  _______  _        ______   _______ 
-    (  ____ \(  ____ \( (    /|(  __  \ (  ____ )
-    | (    \/| (    \/|  \  ( || (  \  )| (    )|
-    | (__    | (__    |   \ | || |   ) || (____)|
-    |  __)   |  __)   | (\ \) || |   | ||     __)
-    | (      | (      | | \   || |   ) || (\ (   
-    | (____/\| )      | )  \  || (__/  )| ) \ \__
-    (_______/|/       |/    )_)(______/ |/   \__/
-                                                
-
-    |_ Author: @JosueEncinar
-    |_ Description: Search emails from a domain through search engines.
-    |_ Version: 0.1b
-    |_ Usage: emailfinder -d domain.com
+long_description = """
+**EmailFinder - Search emails through Search Engines**
+======================================================
 
 Installation:
 -------------
 
-::
-
     > pip3 install emailfinder
 
 Upgrades are also available using:
-
-::
 
     > pip3 install emailfinder --upgrade
 
@@ -50,9 +28,10 @@ Search Engines
 Usage
 -----
 
+EmailFinder can be used in 2 ways:
+
 CLI
-~~~
-::
+---
 
     emailfinder -d domain.com
 
@@ -63,9 +42,7 @@ Parameters:
 
 
 In Code
-~~~~~~~
-
-::
+-------
 
 from emailfinder.extractor import *
 
@@ -89,8 +66,7 @@ Disclaimer!
 The software is designed to leave no trace in the documents we upload to a domain. The author is not responsible for any
 illegitimate use.
 
-.. |Supported Python versions| image:: https://img.shields.io/badge/python-3.6+-blue.svg?style=flat-square&logo=python
-.. |License| image:: https://img.shields.io/badge/license-GNU-green.svg?style=flat-square&logo=gnu
+
 
 """
 
