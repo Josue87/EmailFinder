@@ -25,10 +25,14 @@
 ## Installation:
 
 ```
-> python3 setup.py bdist_wheel
-> pip3 install dist/emailfinder-0.1b0.tar.gz 
+> pip3 install emailfinder
 ```
 
+Upgrades are also available using:
+
+```
+> pip3 install emailfinder --upgrade
+```
 
 ## Search Engines
 
