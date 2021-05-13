@@ -1,0 +1,25 @@
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*egg*
+
+# Results folder
+results/
+*.tmp
+
+dist/
+build/
+
+# Pyre type checker
+.pyre/
+\.vscode/
+
+# Pycache
+__pycache__/
+__pycache__
+
+# Generated files 
+/files
+\.DS_Store
