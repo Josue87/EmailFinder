@@ -64,6 +64,10 @@ emails2 = get_emails_from_bing("domain.com")
 emails3 = get_emails_from_baidu("domain.com")
 ```
 
+## Example
+
+![image](https://user-images.githubusercontent.com/16885065/118242513-b71e1800-b49d-11eb-82ab-f311ec0bba2c.png)
+
 # Author
 
 This project has been developed by:
