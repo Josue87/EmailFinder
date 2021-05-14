@@ -4,8 +4,8 @@ from emailfinder.utils.file.email_parser import get_emails
 import requests
 
 
-def search(target, total=275):
-	bing_count = 25
+def search(target, total=350):
+	bing_count = 50
 	emails = set()
 	url = f"https://www.bing.com/search?q=inbody:'@{target}'&count={bing_count}"
 	try:
