@@ -24,7 +24,7 @@ class BaiduDetection(Exception):
 
 class YandexDetection(Exception):
     def __init__(self, *args):
-        self.data = "Robo detected"
+        self.data = "Robot detected"
         if args:
             self.data = args[0]
     def  __str__(self):

@@ -77,4 +77,4 @@ This project has been developed by:
 
 # Disclaimer!
 
-The software is designed to leave no trace in the documents we upload to a domain. The author is not responsible for any illegitimate use.
+The software is designed to check a company's emails found in the search engines. The author is not responsible for any illegitimate use.
