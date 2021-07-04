@@ -1,5 +1,5 @@
 <h1 align="center">
-  <b>Gotator</b>
+  <b>EmailFinder</b>
   <br>
 </h1>
 <p align="center">
