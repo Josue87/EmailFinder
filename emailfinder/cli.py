@@ -1,3 +1,4 @@
+import sys
 import argparse
 from emailfinder.utils.banner import show_banner
 from emailfinder.core import processing
