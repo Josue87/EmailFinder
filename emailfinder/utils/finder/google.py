@@ -1,12 +1,14 @@
 import requests
+import urllib3
 from random import randint
+from bs4 import BeautifulSoup
 from emailfinder.utils.exception import GoogleCaptcha, GoogleCookiePolicies
 from emailfinder.utils.agent import user_agent
 from emailfinder.utils.file.email_parser import get_emails
-from bs4 import BeautifulSoup
-import urllib3
-urllib3.disable_warnings()
+from emailfinder.utils.color_print import print_error, print_ok
 
+
+urllib3.disable_warnings()
 
 def search(target, proxies=None, total=200):
 	emails = set()
@@ -20,10 +22,12 @@ def search(target, proxies=None, total=200):
 	while start < iterations:
 		try:
 			url = url_base + f"&start={start}"
-			response = requests.get(url, 
-			headers=user_agent.get(randint(0, len(user_agent)-1)),
-			allow_redirects=False,
-			cookies=cookies)
+			response = requests.get(url,
+				headers=user_agent.get(randint(0, len(user_agent)-1)),
+				allow_redirects=False,
+				cookies=cookies,
+				proxies=proxies
+			)
 			text = response.text
 			if response.status_code == 302 and ("htps://www.google.com/webhp" in text or "https://consent.google.com" in text):
 				raise GoogleCookiePolicies()
@@ -37,4 +41,9 @@ def search(target, proxies=None, total=200):
 		except Exception as ex:
 			raise ex #It's left over... but it stays there
 		start += 1
-	return list(emails)	
+	emails = list(emails)
+	if len(emails) > 0:
+		print_ok("Google discovered {} emails".format(len(list(emails))))
+	else:
+		print_error("Google did not discover any email IDs")
+	return emails
