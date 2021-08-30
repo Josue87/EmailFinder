@@ -1,14 +1,16 @@
 import requests
+import urllib3
 from time import sleep
 from random import randint
 from emailfinder.utils.exception import YandexDetection
 from emailfinder.utils.agent import user_agent
 from emailfinder.utils.file.email_parser import get_emails
-import urllib3
+from emailfinder.utils.color_print import print_error, print_ok
+
+
 urllib3.disable_warnings()
 
-
-def search(target, total=50):
+def search(target, total=50, proxies=None):
 	old_text = ""
 	num_results = 50 if total >= 50 else total
 	emails = set()
@@ -28,7 +30,12 @@ def search(target, total=50):
 		new_url = base_url + f'text=inbody:"%40{target}"&numdoc={num_results}&p={count-1}&lr=10435'
 		try:
 			new_agent = user_agent.get(count, next_useragent)
-			response = requests.get(new_url, headers=new_agent, timeout=5, verify=False)
+			response = requests.get(new_url,
+				headers=new_agent,
+				timeout=5,
+				verify=False,
+				proxies=proxies
+			)
 			text = response.text
 			if old_text == text:
 				break
@@ -43,4 +50,9 @@ def search(target, total=50):
 		except Exception as ex:
 			raise ex #It's left over... but it stays there
 		count += 1
-	return list(emails)	
+	emails = list(emails)
+	if len(emails) > 0:
+		print_ok("Yandex discovered {} emails".format(len(list(emails))))
+	else:
+		print_error("Yandex did not discover any email IDs")
+	return emails

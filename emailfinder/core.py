@@ -14,21 +14,21 @@ SEARCH_ENGINES_METHODS = {
 }
 
 
-def _search(engine, target):
+def _search(engine, target, proxy_dict):
     emails = None
     print(f"Searching in {engine}...")
     try:
-        emails = SEARCH_ENGINES_METHODS[engine](target)
+        emails = SEARCH_ENGINES_METHODS[engine](target, proxies=proxy_dict)
         print_ok(f"{engine} done!")
     except Exception as ex:
         print_error(f"{engine} error {ex}")
     return emails
-  
-def _get_emails(target):
+
+def _get_emails(target, proxy_dict):
     threads = 4
     emails = set()
     with ThreadPoolExecutor(max_workers=threads) as executor:
-        future_emails = {executor.submit(_search, engine, target): engine for engine in SEARCH_ENGINES_METHODS.keys()}
+        future_emails = {executor.submit(_search, engine, target, proxy_dict): engine for engine in SEARCH_ENGINES_METHODS.keys()}
         for future in as_completed(future_emails):
             try:
                 data = future.result()
@@ -38,8 +38,20 @@ def _get_emails(target):
                 print_error(f"Error: {ex}")
     return list(emails)
 
-def processing(target):
-    emails = _get_emails(target)
+def processing(target, proxies):
+    """
+        If proxies is specified, define proxy_dict
+    """
+    proxy_dict = None
+
+    if proxies:
+        print('Using Proxies')
+        proxy_dict = {
+            "http"  : proxies,
+            "https" : proxies
+        }
+
+    emails = _get_emails(target, proxy_dict=proxy_dict)
     total_emails = len(emails)
     emails_msg = f"\nTotal emails: {total_emails}"
     print(emails_msg)
