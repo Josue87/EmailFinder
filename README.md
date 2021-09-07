@@ -48,9 +48,14 @@ EmailFinder can be used in 2 ways:
 emailfinder -d domain.com
 ```
 
+```
+emailfinder -d domain.com -p http://127.0.0.1:8080
+```
+
 Parameters:
 * d: Specifies the target domain.
 * v: Show EmailFinder version.
+* p: HTTP proxy server URL.
 
 ### In code
 ```

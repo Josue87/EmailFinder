@@ -6,3 +6,6 @@ def print_error(msg, start="", end=""):
 
 def print_ok(msg, start="", end=""):
     print_formatted_text(HTML(f"<green>{start}[+] </green>{msg}{end}"))
+
+def print_info(msg, start="", end=""):
+    print_formatted_text(HTML(f"<yellow>{start}[i] </yellow>{msg}{end}"))

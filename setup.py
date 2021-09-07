@@ -39,6 +39,7 @@ Parameters:
 
 - d: Specifies the target domain.
 - v: Show EmailFinder version.
+- p: HTTP proxy server URL.
 
 
 In Code

@@ -5,7 +5,7 @@ from random import randint
 from emailfinder.utils.exception import BaiduDetection
 from emailfinder.utils.agent import user_agent
 from emailfinder.utils.file.email_parser import get_emails
-from emailfinder.utils.color_print import print_error, print_ok
+from emailfinder.utils.color_print import print_info, print_ok
 
 
 urllib3.disable_warnings()
@@ -55,5 +55,5 @@ def search(target, total=100, proxies=None):
 	if len(emails) > 0:
 		print_ok("Baidu discovered {} emails".format(len(list(emails))))
 	else:
-		print_error("Baidu did not discover any email IDs")
+		print_info("Baidu did not discover any email IDs")
 	return emails

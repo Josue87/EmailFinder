@@ -1,14 +1,11 @@
 import requests
-import urllib3
 from random import randint
 from bs4 import BeautifulSoup
 from emailfinder.utils.exception import GoogleCaptcha, GoogleCookiePolicies
 from emailfinder.utils.agent import user_agent
 from emailfinder.utils.file.email_parser import get_emails
-from emailfinder.utils.color_print import print_error, print_ok
+from emailfinder.utils.color_print import print_info, print_ok
 
-
-urllib3.disable_warnings()
 
 def search(target, proxies=None, total=200):
 	emails = set()
@@ -26,6 +23,7 @@ def search(target, proxies=None, total=200):
 				headers=user_agent.get(randint(0, len(user_agent)-1)),
 				allow_redirects=False,
 				cookies=cookies,
+				verify=False,
 				proxies=proxies
 			)
 			text = response.text
@@ -45,5 +43,5 @@ def search(target, proxies=None, total=200):
 	if len(emails) > 0:
 		print_ok("Google discovered {} emails".format(len(list(emails))))
 	else:
-		print_error("Google did not discover any email IDs")
+		print_info("Google did not discover any email IDs")
 	return emails
