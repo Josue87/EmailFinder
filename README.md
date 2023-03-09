@@ -56,6 +56,9 @@ Parameters:
 * d: Specifies the target domain.
 * v: Show EmailFinder version.
 * p: HTTP proxy server URL.
+* f: Save found emails to a specified file
+* x: Hide the brand banner
+
 
 ### In code
 ```
