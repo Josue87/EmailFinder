@@ -1,6 +1,6 @@
 class GoogleCaptcha(Exception):
     def __init__(self, *args):
-        self.data = "Captcha detected"
+        self.data = "captcha detected"
         if args:
             self.data = args[0]
     def  __str__(self):
@@ -8,7 +8,7 @@ class GoogleCaptcha(Exception):
 
 class GoogleCookiePolicies(Exception):
     def __init__(self, *args):
-        self.data = "Cookie Policy detected"
+        self.data = "cookie Policy detected"
         if args:
             self.data = args[0]
     def  __str__(self):
@@ -16,7 +16,7 @@ class GoogleCookiePolicies(Exception):
 
 class BaiduDetection(Exception):
     def __init__(self, *args):
-        self.data = "Robot detected"
+        self.data = "robot detected"
         if args:
             self.data = args[0]
     def  __str__(self):
@@ -24,7 +24,7 @@ class BaiduDetection(Exception):
 
 class YandexDetection(Exception):
     def __init__(self, *args):
-        self.data = "Robot detected"
+        self.data = "robot detected"
         if args:
             self.data = args[0]
     def  __str__(self):
