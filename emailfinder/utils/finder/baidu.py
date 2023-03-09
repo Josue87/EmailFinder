@@ -55,5 +55,5 @@ def search(target, total=100, proxies=None):
 	if len(emails) > 0:
 		print_ok("Baidu discovered {} emails".format(len(list(emails))))
 	else:
-		print_info("Baidu did not discover any email IDs")
+		print_info("Baidu did not discover any email addresses")
 	return emails

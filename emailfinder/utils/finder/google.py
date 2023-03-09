@@ -43,5 +43,5 @@ def search(target, proxies=None, total=200):
 	if len(emails) > 0:
 		print_ok("Google discovered {} emails".format(len(list(emails))))
 	else:
-		print_info("Google did not discover any email IDs")
+		print_info("Google did not discover any email addresses")
 	return emails
